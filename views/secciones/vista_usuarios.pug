@@ -1,0 +1,78 @@
+extends ../compartidos/app-main
+
+block content_secciones
+    
+    .card
+        .card-header
+            h3.card-title Usuarios
+
+        .card-body
+            input#search.form-control.mb-3(
+                type="text"
+                placeholder="Buscar usuario..."
+            )
+            #tabla-usuarios
+append scripts
+    script(type="text/javascript", src="/tabulator/js/tabulator.min.js")
+
+    script.
+            console.log(Tabulator);
+            const table = new Tabulator("#tabla-usuarios", {
+
+            ajaxURL: "/api/users",
+
+            layout: "fitColumns",
+
+            responsiveLayout: "collapse",
+
+            pagination: true,
+
+            paginationSize: 10,
+
+            placeholder: "No hay registros",
+
+            columns: [
+                {
+                title: "ID",
+                field: "id",
+                width: 80
+                },
+                {
+                title: "Nombre",
+                field: "name"
+                },
+                {
+                title: "Email",
+                field: "email"
+                },
+                {
+                title: "Rol",
+                field: "role"
+                },
+                {
+                title: "Acciones",
+                formatter: function() {
+                    return `
+                    <button class="btn btn-sm btn-primary">
+                        Editar
+                    </button>
+                    `;
+                },
+                hozAlign: "center",
+                width: 120
+                }
+            ]
+            });
+
+            document
+            .getElementById("search")
+            .addEventListener("keyup", function () {
+
+                table.setFilter([
+                [
+                    { field: "name", type: "like", value: this.value },
+                    { field: "email", type: "like", value: this.value }
+                ]
+                ]);
+
+            });

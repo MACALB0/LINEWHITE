@@ -1,0 +1,317 @@
+// begin::Sidebar
+aside(class="app-sidebar bg-primary-subtle shadow", data-bs-theme="dark")
+	// begin::Sidebar Brand
+	div(class="sidebar-brand")
+		// begin::Brand Link
+		a(href="./index.html", class="brand-link")
+			// begin::Brand Image
+			img(src="./images/Home_L_W_S.png", alt="AdminLTE Logo", class="brand-image opacity-75 shadow")
+			// end::Brand Image
+			// begin::Brand Text
+			span(class="brand-text fw-light") Line White Services
+			// end::Brand Text
+		// end::Brand Link
+	// end::Sidebar Brand
+	// begin::Sidebar Wrapper
+	div(class="sidebar-wrapper")
+		nav(class="mt-2")
+			// begin::Sidebar Menu
+			ul#navigation(class="nav sidebar-menu flex-column", data-lte-toggle="treeview", role="navigation", aria-label="Main navigation", data-accordion="false")
+				li(class=`nav-item ${['/facturas', '/index', '/inventario', '/ordenes_tecnicas', '/usuarios'].includes(currentPath) ? 'menu-open' : ''}`)
+					a(href="#", class="nav-link active")
+						i(class="nav-icon bi bi-speedometer")
+						p
+							| Dashboard
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="/index", class=`nav-link ${currentPath === '/index' ? 'active' : ''}`)
+								i(class="nav-icon bi bi-circle")
+								p Inicio
+						li(class="nav-item")
+							a(href="/inventario", class=`nav-link ${currentPath === '/inventario' ? 'active' : ''}` )
+								i(class="nav-icon bi bi-circle")
+								p Inventario
+						li(class="nav-item")
+							a(href="/facturas", class=`nav-link ${currentPath === '/facturas' ? 'active' : ''}`)
+								i(class="nav-icon bi bi-circle")
+								p Facturas
+						li(class="nav-item")
+							a(href="/ordenes_tecnicas", class=`nav-link ${currentPath === '/ordenes_tecnicas' ? 'active' : ''}`)
+								i(class="nav-icon bi bi-circle")
+								p Ordenes tecnicas
+						li(class="nav-item")
+							a(href="/usuarios", class=`nav-link ${currentPath === '/usuarios' ? 'active' : ''}`)
+								i(class="nav-icon bi bi-circle")
+								p Usuarios
+				li(class="nav-item")
+					a(href="./generate/theme.html", class="nav-link")
+						i(class="nav-icon bi bi-palette")
+						p Theme Generate
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-box-seam-fill")
+						p
+							| Widgets
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./widgets/small-box.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Small Box
+						li(class="nav-item")
+							a(href="./widgets/info-box.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p info Box
+						li(class="nav-item")
+							a(href="./widgets/cards.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Cards
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-clipboard-fill")
+						p
+							| Layout Options
+							span(class="nav-badge badge text-bg-secondary me-3") 6
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./layout/unfixed-sidebar.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Default Sidebar
+						li(class="nav-item")
+							a(href="./layout/fixed-sidebar.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Fixed Sidebar
+						li(class="nav-item")
+							a(href="./layout/fixed-header.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Fixed Header
+						li(class="nav-item")
+							a(href="./layout/fixed-footer.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Fixed Footer
+						li(class="nav-item")
+							a(href="./layout/fixed-complete.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Fixed Complete
+						li(class="nav-item")
+							a(href="./layout/layout-custom-area.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Layout 
+									small + Custom Area 
+						li(class="nav-item")
+							a(href="./layout/sidebar-mini.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Sidebar Mini
+						li(class="nav-item")
+							a(href="./layout/collapsed-sidebar.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Sidebar Mini 
+									small + Collapsed
+						li(class="nav-item")
+							a(href="./layout/logo-switch.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Sidebar Mini 
+									small + Logo Switch
+						li(class="nav-item")
+							a(href="./layout/layout-rtl.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Layout RTL
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-tree-fill")
+						p
+							| UI Elements
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./UI/general.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p General
+						li(class="nav-item")
+							a(href="./UI/icons.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Icons
+						li(class="nav-item")
+							a(href="./UI/timeline.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Timeline
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-pencil-square")
+						p
+							| Forms
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./forms/general.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p General Elements
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-table")
+						p
+							| Tables
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./tables/simple.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Simple Tables
+				li(class="nav-header") EXAMPLES
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-box-arrow-in-right")
+						p
+							| Auth
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="#", class="nav-link")
+								i(class="nav-icon bi bi-box-arrow-in-right")
+								p
+									| Version 1
+									i(class="nav-arrow bi bi-chevron-right")
+							ul(class="nav nav-treeview")
+								li(class="nav-item")
+									a(href="./examples/login.html", class="nav-link")
+										i(class="nav-icon bi bi-circle")
+										p Login
+								li(class="nav-item")
+									a(href="./examples/register.html", class="nav-link")
+										i(class="nav-icon bi bi-circle")
+										p Register
+						li(class="nav-item")
+							a(href="#", class="nav-link")
+								i(class="nav-icon bi bi-box-arrow-in-right")
+								p
+									| Version 2
+									i(class="nav-arrow bi bi-chevron-right")
+							ul(class="nav nav-treeview")
+								li(class="nav-item")
+									a(href="./examples/login-v2.html", class="nav-link")
+										i(class="nav-icon bi bi-circle")
+										p Login
+								li(class="nav-item")
+									a(href="./examples/register-v2.html", class="nav-link")
+										i(class="nav-icon bi bi-circle")
+										p Register
+						li(class="nav-item")
+							a(href="./examples/lockscreen.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Lockscreen
+				li(class="nav-header") DOCUMENTATIONS
+				li(class="nav-item")
+					a(href="./docs/introduction.html", class="nav-link")
+						i(class="nav-icon bi bi-download")
+						p Installation
+				li(class="nav-item")
+					a(href="./docs/layout.html", class="nav-link")
+						i(class="nav-icon bi bi-grip-horizontal")
+						p Layout
+				li(class="nav-item")
+					a(href="./docs/color-mode.html", class="nav-link")
+						i(class="nav-icon bi bi-star-half")
+						p Color Mode
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-ui-checks-grid")
+						p
+							| Components
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./docs/components/main-header.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Main Header
+						li(class="nav-item")
+							a(href="./docs/components/main-sidebar.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Main Sidebar
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-filetype-js")
+						p
+							| Javascript
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="./docs/javascript/treeview.html", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Treeview
+				li(class="nav-item")
+					a(href="./docs/browser-support.html", class="nav-link")
+						i(class="nav-icon bi bi-browser-edge")
+						p Browser Support
+				li(class="nav-item")
+					a(href="./docs/how-to-contribute.html", class="nav-link")
+						i(class="nav-icon bi bi-hand-thumbs-up-fill")
+						p How To Contribute
+				li(class="nav-item")
+					a(href="./docs/faq.html", class="nav-link")
+						i(class="nav-icon bi bi-question-circle-fill")
+						p FAQ
+				li(class="nav-item")
+					a(href="./docs/license.html", class="nav-link")
+						i(class="nav-icon bi bi-patch-check-fill")
+						p License
+				li(class="nav-header") MULTI LEVEL EXAMPLE
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle-fill")
+						p Level 1
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle-fill")
+						p
+							| Level 1
+							i(class="nav-arrow bi bi-chevron-right")
+					ul(class="nav nav-treeview")
+						li(class="nav-item")
+							a(href="#", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Level 2
+						li(class="nav-item")
+							a(href="#", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p
+									| Level 2
+									i(class="nav-arrow bi bi-chevron-right")
+							ul(class="nav nav-treeview")
+								li(class="nav-item")
+									a(href="#", class="nav-link")
+										i(class="nav-icon bi bi-record-circle-fill")
+										p Level 3
+								li(class="nav-item")
+									a(href="#", class="nav-link")
+										i(class="nav-icon bi bi-record-circle-fill")
+										p Level 3
+								li(class="nav-item")
+									a(href="#", class="nav-link")
+										i(class="nav-icon bi bi-record-circle-fill")
+										p Level 3
+						li(class="nav-item")
+							a(href="#", class="nav-link")
+								i(class="nav-icon bi bi-circle")
+								p Level 2
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle-fill")
+						p Level 1
+				li(class="nav-header") LABELS
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle text-danger")
+						p(class="text") Important
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle text-warning")
+						p Warning
+				li(class="nav-item")
+					a(href="#", class="nav-link")
+						i(class="nav-icon bi bi-circle text-info")
+						p Informational
+			// end::Sidebar Menu
+	// end::Sidebar Wrapper
+// end::Sidebar

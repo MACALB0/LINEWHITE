@@ -1,0 +1,215 @@
+extends ../compartidos/app-main
+
+block content_secciones
+    div(class="container-fluid")
+        // begin::Row
+        div(class="row m-1")
+            // begin::Col
+            div(class="col-lg-12 col-12")
+                div(class="card")
+                    div(class="card-header")
+                        div(class="container-fluid")
+                            div(class="row justify-content-end")
+                                div(class="col-10")
+                                    h3(class="card-title")
+                                        strong Productos en inventario
+                                div(class="col-2 text-end")
+                                    div(class="d-grid gap-2")
+                                        button(type="button", class="btn btn-primary", data-bs-toggle="modal", data-bs-target="#exampleModal") 
+                                            i(class="bi bi-clipboard-plus-fill")
+                                            |  Añadir
+                                //- div(class="col-2 ")
+                                //-     button(type="button", class="btn btn-primary") Añadir
+                    div(class="card-body")
+                        div(class="alert alert-success", role="alert") Se muestran todos los productos que se han registrado.
+                        //- button(type="button", class="btn btn-primary mb-2") Añadir
+                        input#search(class="form-control mb-3", type="text", placeholder="Buscar productos...")
+                        #tabla-productos
+            // end::Col
+
+    include ./modals/modal_anadir_inventario.pug
+        // end::Row
+        // begin::Row
+        //- div(class="row m-5")
+        //-     // begin::Col
+        //-     div(class="col-lg-12 col-12")
+        //-         .card
+        //-             .card-header
+        //-                 h3.card-title
+        //-                     strong
+        //-                         | Compras de productos
+
+        //-             .card-body
+        //-                 input#search.form-control.mb-3(
+        //-                     type="text"
+        //-                     placeholder="Buscar productos..."
+        //-                 )
+        //-                 #tabla-compras
+            // end::Col
+        // end::Row
+append scripts
+    script(type="text/javascript", src="/tabulator/js/tabulator.min.js")
+
+    //- script.
+    //-         console.log("#tabla-compras", Tabulator);
+    //-         const table_compras = new Tabulator("#tabla-compras", {
+
+    //-         ajaxURL: "/api/users",
+
+    //-         layout: "fitColumns",
+
+    //-         responsiveLayout: "collapse",
+
+    //-         pagination: true,
+
+    //-         paginationSize: 10,
+
+    //-         placeholder: "No hay registros",
+
+    //-         columns: [
+    //-             {
+    //-             title: "ID Producto",
+    //-             field: "id",
+    //-             width: 80
+    //-             },
+    //-             {
+    //-             title: "Código",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Marca",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Modelo",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Descripción",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Sinonimos",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Cantidad",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Precio unitario",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Orden de compra",
+    //-             field: "name"
+    //-             },
+    //-             {
+    //-             title: "Acciones",
+    //-             formatter: function() {
+    //-                 return `
+    //-                 <button class="btn btn-sm btn-primary">
+    //-                     Editar
+    //-                 </button>
+    //-                 `;
+    //-             },
+    //-             hozAlign: "center",
+    //-             width: 120
+    //-             }
+    //-         ]
+    //-         });
+
+    //-         document
+    //-         .getElementById("search")
+    //-         .addEventListener("keyup", function () {
+
+    //-             table.setFilter([
+    //-             [
+    //-                 { field: "name", type: "like", value: this.value },
+    //-                 { field: "email", type: "like", value: this.value }
+    //-             ]
+    //-             ]);
+
+    //-         });
+
+    script.
+            console.log("#tabla-productos", Tabulator);
+            const table = new Tabulator("#tabla-productos", {
+
+            ajaxURL: "/api/users",
+
+            layout: "fitColumns",
+
+            responsiveLayout: "collapse",
+
+            pagination: true,
+
+            paginationSize: 10,
+
+            placeholder: "No hay registros",
+
+            columns: [
+                {
+                title: "ID Producto",
+                field: "id",
+                width: 80
+                },
+                {
+                title: "Código",
+                field: "name"
+                },
+                {
+                title: "Marca",
+                field: "name"
+                },
+                {
+                title: "Modelo",
+                field: "name"
+                },
+                {
+                title: "Descripción",
+                field: "name"
+                },
+                {
+                title: "Sinonimos",
+                field: "name"
+                },
+                {
+                title: "Cantidad",
+                field: "name"
+                },
+                {
+                title: "Precio unitario",
+                field: "name"
+                },
+                {
+                title: "Orden de compra",
+                field: "name"
+                },
+                {
+                title: "Acciones",
+                formatter: function() {
+                    return `
+                    <button class="btn btn-sm btn-primary">
+                        Editar
+                    </button>
+                    `;
+                },
+                hozAlign: "center",
+                width: 120
+                }
+            ]
+            });
+
+            document
+            .getElementById("search")
+            .addEventListener("keyup", function () {
+
+                table.setFilter([
+                [
+                    { field: "name", type: "like", value: this.value },
+                    { field: "email", type: "like", value: this.value }
+                ]
+                ]);
+
+            });

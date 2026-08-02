@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+  // begin::App Wrapper
+  div(class="app-wrapper")
+    include ./compartidos/app-header.pug
+    include ./compartidos/app-sidebar.pug
+    //- include ./compartidos/app-main.pug
+    block content_app_main
+    include ./compartidos/app-footer.pug
+  // end::App Wrapper

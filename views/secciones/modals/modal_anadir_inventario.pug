@@ -1,0 +1,60 @@
+//- link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB", crossorigin="anonymous")
+//- script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js", integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI", crossorigin="anonymous")
+
+
+// Button trigger modal
+//- button(type="button", class="btn btn-primary", data-bs-toggle="modal", data-bs-target="#exampleModal")
+	| Launch demo modal
+// Modal
+div#exampleModal(class="modal fade", tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
+	div(class="modal-dialog")
+		div(class="modal-content")
+			div(class="modal-header")
+				h1#exampleModalLabel(class="modal-title fs-5") Añadir al inventario
+				button(type="button", class="btn-close", data-bs-dismiss="modal", aria-label="Close")
+			div(class="modal-body")
+				// begin::Formulario de registro de productos
+				form
+					div(class="card card-success card-outline mb-4")
+						// begin::Header
+						div(class="card-header")
+							div(class="card-title") 
+								strong 
+									| Producto
+						// end::Header
+						// begin::Body
+						div(class="card-body")
+							div(class="form-floating mb-3")
+								input#floatingInput(type="text", class="form-control", placeholder="ABC123", required )
+								label(for="floatingInput") Código
+							div(class="form-floating mb-3")
+								input#floatingInput(type="text", class="form-control", placeholder="ABC", required )
+								label(for="floatingInput") Marca
+							div(class="form-floating mb-3")
+								input#floatingInput(type="text", class="form-control", placeholder="123", required )
+								label(for="floatingInput") Modelo
+							div(class="form-floating mb-3")
+								input#floatingInput(type="text", class="form-control", placeholder="123", required )
+								label(for="floatingInput") Nombre / Descripción
+							div(class="form-floating mb-3")
+								input#floatingInput(type="text", class="form-control", placeholder="123", min="1" required )
+								label(for="floatingInput") Sinónimos
+							div(class="form-floating mb-3")
+								input#floatingInput(type="number", class="form-control", placeholder="123", min="1" required )
+								label(for="floatingInput") Cantidad
+							div(class="form-floating mb-3")
+								input#floatingInput(type="number", class="form-control", placeholder="123", min="1" required )
+								label(for="floatingInput") Precio
+						// end::Body
+						// begin::Footer
+						//- div(class="card-footer")
+							//- button(type="submit", class="btn btn-success") Submit
+						// end::Footer
+				// end::Formulario de registro de productos
+			div(class="modal-footer")
+				button(type="button", class="btn btn-danger", data-bs-dismiss="modal")
+					i(class="bi bi-x-circle")
+					|  Cerrar
+				button(type="button", class="btn btn-success")
+					i(class="bi bi-floppy")
+					|  Guardar
