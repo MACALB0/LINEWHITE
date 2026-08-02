@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const oracledb = require('oracledb');
 
+const passport = require('passport');
+
 // Activa el modo thick del modulo oracledb
 try {
     oracledb.initOracleClient({ libDir: process.PATH_CLIENT_ORACLE }); // AJUSTA la ruta según donde descomprimiste Oracle Instant Client
@@ -70,7 +72,18 @@ donde se verifica si el usuario y contraseña son val-
 lidos y se puede entrar o no al sistema
 =====================================================
 */
-router.post('/login', login);
+// router.post('/login', login);
+
+router.post('/login',
+
+    passport.authenticate('local',{
+        successRedirect:'/index',
+        failureRedirect:'/'
+    })
+
+);
+
+
 
 
 router.get('/api/users', async (req, res) => {
