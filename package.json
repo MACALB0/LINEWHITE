@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "admin-lte": "^4.0.0-rc6",
-    "bcrypt": "^6.0.0",
+    "argon2": "^0.45.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
     "debug": "^4.4.3",

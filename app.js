@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     store: new FileStore({
         path: './sessions',
-        ttl: 60 * 60 * 2, // 1 día
+        ttl: 60 * 60 * 2, // 2 horas
         retries: 0
     }),
     secret: process.env.SESSION_SECRET,
@@ -34,7 +34,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 2 // 1 día
+        maxAge: 1000 * 60 * 60 * 2 // 2 horas
     }
 }));
 
