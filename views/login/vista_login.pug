@@ -1,38 +1,3 @@
-//- doctype html
-//- html
-//-   head
-//-     meta(charset="utf-8")
-//-     meta(name="viewport", content="width=device-width, initial-scale=1")
-//-     title Login | Line White
-//-     link(rel="stylesheet", href="/adminlte/css/adminlte.min.css")
-//-     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css")
-
-//-   body(class="hold-transition login-page")
-//-     .login-box
-//-       .login-logo
-//-         b Line White
-//-         |  Admin
-//-       .card
-//-         .card-body.login-card-body
-//-           p.login-box-msg Inicia sesión para continuar
-//-           form(action="/login" method="post")
-//-             .input-group.mb-3
-//-               input.form-control(type="text", placeholder="Usuario", name="username", required)
-//-               .input-group-append
-//-                 .input-group-text
-//-                   i.fas.fa-user
-//-             .input-group.mb-3
-//-               input.form-control(type="password", placeholder="Contraseña", name="password", required)
-//-               .input-group-append
-//-                 .input-group-text
-//-                   i.fas.fa-lock
-//-             .row
-//-               .col-8
-//-               .col-4
-//-                 button.btn.btn-primary.btn-block(type="submit") Entrar
-//-           p.mt-3.mb-1
-//-             a(href="#") Olvidé mi contraseña
-
 doctype html
 html
   head
@@ -153,7 +118,7 @@ html
           if error
             .alert.alert-danger.text-center #{error}
 
-          form(action="/login" method="post")
+          form
             .input-group.mb-3
               input.form-control(type="text", placeholder="Usuario", name="usuario", id="usuario", required)
               .input-group-append
@@ -164,7 +129,7 @@ html
               .input-group-append
                 .input-group-text
                   i.fas.fa-lock.fa-lg
-            button.btn.btn-primary.btn-block.mb-3(type="submit") Iniciar sesión
+            button.btn.btn-primary.btn-block.mb-3(type="button", id="btn_login", name="btn_login") Iniciar sesión
 
           .text-center.login-footer.mb-3
             a(href="#") ¿Olvidaste tu contraseña?
@@ -176,3 +141,7 @@ html
               i.fab.fa-twitter
             a(href="#") 
               i.fab.fa-google
+    script.
+      console.log('Iniciar login');
+
+    script(src='/javascripts/login.js')
