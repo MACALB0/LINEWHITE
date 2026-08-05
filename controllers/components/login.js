@@ -1,3 +1,4 @@
+// login.js no va, se cambio a passport
 const express = require('express');
 const router = express.Router();
 

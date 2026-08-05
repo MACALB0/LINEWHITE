@@ -1,78 +1,85 @@
 extends ../compartidos/app-main
 
 block content_secciones
-    
     .card
         .card-header
-            h3.card-title Usuarios
+            h3.card-title Órdenes técnicas
 
         .card-body
-            input#search.form-control.mb-3(
+            .alert.alert-success(
+                role="alert"
+            ) Se muestran las órdenes técnicas registradas.
+
+            input#search-ordenes.form-control.mb-3(
                 type="text"
-                placeholder="Buscar usuario..."
+                placeholder="Buscar orden técnica..."
             )
-            #tabla-usuarios
+
+            #tabla-ordenes
+
 append scripts
-    script(type="text/javascript", src="/tabulator/js/tabulator.min.js")
+    script(
+        type="text/javascript"
+        src="/tabulator/js/tabulator.min.js"
+    )
 
     script.
-            console.log(Tabulator);
-            const table = new Tabulator("#tabla-usuarios", {
-
+        const table = new Tabulator("#tabla-ordenes", {
             ajaxURL: "/api/users",
-
             layout: "fitColumns",
-
             responsiveLayout: "collapse",
-
             pagination: true,
-
             paginationSize: 10,
-
             placeholder: "No hay registros",
 
             columns: [
                 {
-                title: "ID",
-                field: "id",
-                width: 80
+                    title: "ID Orden",
+                    field: "id",
+                    width: 100
                 },
                 {
-                title: "Nombre",
-                field: "name"
+                    title: "Cliente",
+                    field: "name"
                 },
                 {
-                title: "Email",
-                field: "email"
+                    title: "Correo",
+                    field: "email"
                 },
                 {
-                title: "Rol",
-                field: "role"
+                    title: "Estado",
+                    field: "role"
                 },
                 {
-                title: "Acciones",
-                formatter: function() {
-                    return `
-                    <button class="btn btn-sm btn-primary">
-                        Editar
-                    </button>
-                    `;
-                },
-                hozAlign: "center",
-                width: 120
+                    title: "Acciones",
+                    formatter: function () {
+                        return `
+                            <button class="btn btn-sm btn-primary">
+                                Ver detalle
+                            </button>
+                        `;
+                    },
+                    hozAlign: "center",
+                    width: 130
                 }
             ]
-            });
+        });
 
-            document
-            .getElementById("search")
+        document
+            .getElementById("search-ordenes")
             .addEventListener("keyup", function () {
-
                 table.setFilter([
-                [
-                    { field: "name", type: "like", value: this.value },
-                    { field: "email", type: "like", value: this.value }
-                ]
+                    [
+                        {
+                            field: "name",
+                            type: "like",
+                            value: this.value
+                        },
+                        {
+                            field: "email",
+                            type: "like",
+                            value: this.value
+                        }
+                    ]
                 ]);
-
             });

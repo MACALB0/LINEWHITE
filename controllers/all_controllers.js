@@ -1,3 +1,4 @@
+// all_controllers.js
 const components_login = require ('./components/login');
 const components_vista_facturas = require ('./components/vista_facturas');
 const components_vista_index = require ('./components/vista_index');

@@ -19,7 +19,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+coverage/
 *.lcov
 
 # nyc test coverage
@@ -142,3 +142,21 @@ dist
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Sesión autenticada de Playwright
+tests/e2e/.auth/
+
+
+# Resultados de Playwright, Cucumber y Allure
+allure-results/
+reports/test-results/
+reports/playwright-html/
+reports/allure-report/
+reports/cucumber-report.json
+
+# Archivos temporales
+bdd-server.pid
+
+# Sesiones locales
+sessions/*
+!sessions/.gitkeep
