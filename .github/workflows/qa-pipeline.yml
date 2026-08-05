@@ -11,6 +11,12 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
   # =========================================================
@@ -202,3 +208,51 @@ jobs:
 
       - name: Ejecutar npm audit
         run: npm audit --audit-level=high
+        
+  # =========================================================
+  # JOB 4: Publicar Allure en GitHub Pages
+  # Solo se ejecuta después de completar correctamente E2E
+  # y únicamente cuando el evento corresponde a la rama main.
+  # =========================================================
+  deploy-allure:
+    name: Deploy Allure Report
+    runs-on: ubuntu-latest
+    needs:
+      - e2e-tests
+
+    if: >
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main'
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Descargar artifact de pruebas E2E
+        uses: actions/download-artifact@v4
+        with:
+          name: e2e-allure-reports
+          path: artifacts
+
+      - name: Verificar reporte Allure
+        run: |
+          echo "Contenido descargado:"
+          find artifacts -maxdepth 4 -type f | head -50
+
+          if [ ! -f "artifacts/reports/allure-report/index.html" ]; then
+            echo "No se encontró el archivo index.html de Allure"
+            exit 1
+          fi
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Cargar reporte para GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: artifacts/reports/allure-report
+
+      - name: Publicar reporte Allure
+        id: deployment
+        uses: actions/deploy-pages@v4
