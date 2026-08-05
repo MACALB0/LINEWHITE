@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="es")
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -58,8 +58,8 @@ html
         box-shadow: 0 0 8px #1cc88a;
       }
       .btn-primary {
-        background-color: #4e73df;
-        border-color: #4e73df;
+        background:#3b5bdb;
+        border-color:#3b5bdb;
         transition: 0.3s;
       }
       .btn-primary:hover {
@@ -73,10 +73,11 @@ html
       }
 
       .login-footer a {
-        color: #4e73df;
+        color: #2f55b5;
         text-decoration: none;
         transition: 0.2s;
       }
+
       .login-footer a:hover {
         text-decoration: underline;
       }
@@ -84,11 +85,13 @@ html
       .social-login a {
         font-size: 1.4rem;
         margin: 0 8px;
-        color: #4e73df;
+        color: #2f55b5;
         transition: 0.3s;
       }
-      .social-login a:hover {
-        color: #1cc88a;
+
+      .social-login a:hover,
+      .social-login a:focus {
+        color: #176c50;
       }
 
         .input-group-text {
@@ -132,14 +135,14 @@ html
             button.btn.btn-primary.btn-block.mb-3(type="button", id="btn_login", name="btn_login") Iniciar sesión
 
           .text-center.login-footer.mb-3
-            a(href="#") ¿Olvidaste tu contraseña?
+            a(href="/recuperar_contraseña") ¿Olvidaste tu contraseña?
 
           .text-center.social-login
-            a(href="#") 
+            a(href="https://www.facebook.com/?locale=es_LA", aria-label="Facebook") 
               i.fab.fa-facebook-f
-            a(href="#") 
+            a(href="https://x.com/?lang=es", aria-label="Twitter" )
               i.fab.fa-twitter
-            a(href="#") 
+            a(href="https://www.google.com/?hl=es", aria-label="Google") 
               i.fab.fa-google
     script.
       console.log('Iniciar login');

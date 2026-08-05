@@ -1,0 +1,485 @@
+[
+  {
+    "description": "  Como usuario autorizado de Line White Services\n  Quiero iniciar sesión en el sistema\n  Para acceder a los módulos administrativos",
+    "elements": [
+      {
+        "description": "",
+        "id": "autenticación-de-usuarios;mostrar-correctamente-la-página-de-inicio-de-sesión",
+        "keyword": "Escenario",
+        "line": 8,
+        "name": "Mostrar correctamente la página de inicio de sesión",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 423624200
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 823224500
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 9,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 15480499
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 10,
+            "name": "debo visualizar el campo de usuario",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:30"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 14357999
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 11,
+            "name": "debo visualizar el campo de contraseña",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:39"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 9902000
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 12,
+            "name": "debo visualizar el botón de iniciar sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:48"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 153269599
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticación-de-usuarios;rechazar-el-inicio-de-sesión-con-campos-vacíos",
+        "keyword": "Escenario",
+        "line": 14,
+        "name": "Rechazar el inicio de sesión con campos vacíos",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 364975199
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 761261799
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 15,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 134007099
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 16,
+            "name": "presiono iniciar sesión sin escribir credenciales",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:57"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 10748699
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 17,
+            "name": "debo visualizar la alerta \"Debe ingresar usuario y contraseña\"",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:111"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 13703700
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 18,
+            "name": "debo permanecer en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:122"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 229599000
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticación-de-usuarios;rechazar-un-usuario-inexistente",
+        "keyword": "Escenario",
+        "line": 20,
+        "name": "Rechazar un usuario inexistente",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 346345900
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 801748400
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 21,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 476523600
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 22,
+            "name": "intento iniciar sesión con un usuario inexistente",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:83"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1156699
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 23,
+            "name": "debo visualizar la alerta \"USUARIO NO EXISTE\"",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:111"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 22981099
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 24,
+            "name": "debo permanecer en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:122"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 170997499
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticación-de-usuarios;permitir-el-inicio-de-sesión-con-credenciales-válidas",
+        "keyword": "Escenario",
+        "line": 26,
+        "name": "Permitir el inicio de sesión con credenciales válidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 355235500
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 727714700
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 27,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2025270499
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 28,
+            "name": "ingreso credenciales válidas",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:133"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 62695299
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 29,
+            "name": "debo acceder al dashboard",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:166"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 520478699
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "autenticación-de-usuarios",
+    "line": 3,
+    "keyword": "Característica",
+    "name": "Autenticación de usuarios",
+    "tags": [],
+    "uri": "tests\\e2e\\features\\autenticacion.feature"
+  },
+  {
+    "description": "  Como usuario autorizado de Line White Services\n  Quiero navegar a los módulos principales\n  Para gestionar la operación del sistema",
+    "elements": [
+      {
+        "description": "",
+        "id": "acceso-a-módulos-de-negocio;acceder-al-módulo-de-inventario",
+        "keyword": "Escenario",
+        "line": 11,
+        "name": "Acceder al módulo de Inventario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 447202000
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2339065999
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 9,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1158338999
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 12,
+            "name": "selecciono el módulo de Inventario",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:63"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 75877799
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 13,
+            "name": "debo visualizar la página de Inventario",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:74"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 306223699
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 14,
+            "name": "debo visualizar la tabla de productos",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:87"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 185561799
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "acceso-a-módulos-de-negocio;acceder-al-módulo-de-órdenes-técnicas",
+        "keyword": "Escenario",
+        "line": 16,
+        "name": "Acceder al módulo de Órdenes Técnicas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 387276699
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2286086400
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 9,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1092044499
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 17,
+            "name": "selecciono el módulo de Órdenes Técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:105"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 75743699
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 18,
+            "name": "debo visualizar la página de Órdenes Técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:116"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 333387800
+            },
+            "arguments": [],
+            "keyword": "Y ",
+            "line": 19,
+            "name": "debo visualizar la tabla de órdenes técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:129"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 135335299
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "acceso-a-módulos-de-negocio",
+    "line": 3,
+    "keyword": "Característica",
+    "name": "Acceso a módulos de negocio",
+    "tags": [],
+    "uri": "tests\\e2e\\features\\modulos-negocio.feature"
+  }
+]
