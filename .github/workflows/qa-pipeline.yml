@@ -257,7 +257,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
   # =========================================================
-  # JOB: Análisis estático con SonarQube Cloud
+  # JOB 5: Análisis estático con SonarQube Cloud
   # =========================================================
   sonarcloud-scan:
     name: SonarCloud Scan
@@ -290,7 +290,7 @@ jobs:
         run: npm run test:coverage
 
       - name: Ejecutar análisis de SonarCloud
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@fd88b7d7ccbaefd23d8f36f73b59db7a3d246602 # v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
