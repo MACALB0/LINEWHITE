@@ -256,3 +256,41 @@ jobs:
       - name: Publicar reporte Allure
         id: deployment
         uses: actions/deploy-pages@v4
+  # =========================================================
+  # JOB: Análisis estático con SonarQube Cloud
+  # =========================================================
+  sonarcloud-scan:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    needs:
+      - unit-tests
+
+    steps:
+      - name: Descargar repositorio completo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Generar coverage para SonarCloud
+        run: npm run test:coverage
+
+      - name: Ejecutar análisis de SonarCloud
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
