@@ -122,11 +122,13 @@ html(lang="es")
             .alert.alert-danger.text-center #{error}
 
           form
+            label.sr-only(for="usuario") Usuario
             .input-group.mb-3
               input.form-control(type="text", placeholder="Usuario", name="usuario", id="usuario", required)
               .input-group-append
                 .input-group-text
                   i.fas.fa-user.fa-lg
+            label.sr-only(for="contrasena") Contraseña
             .input-group.mb-3
               input.form-control(type="password", placeholder="Contraseña", name="contrasena", id="contrasena", required)
               .input-group-append
