@@ -15,7 +15,11 @@
     "test:bdd:login": "cucumber-js --config cucumber-login.js",
     "test:e2e:allure": "playwright test && allure generate allure-results --clean -o reports/allure-report",
     "test:bdd:run": "cucumber-js",
-    "test:bdd": "start-server-and-test start http://127.0.0.1:7055 test:bdd:run"
+    "test:bdd": "start-server-and-test start http://127.0.0.1:7055 test:bdd:run",
+    "test:ai": "jest --config jest.ai.config.js --runInBand",
+    "test:ai:bdd:run": "cucumber-js --config cucumber-ai.js",
+    "test:ai:bdd": "start-server-and-test start http://127.0.0.1:7055 test:ai:bdd:run",
+    "test:ai:e2e": "playwright test --config=playwright.ai.config.js"
   },
   "dependencies": {
     "admin-lte": "^4.0.0-rc6",
@@ -40,6 +44,7 @@
     "@playwright/test": "^1.62.1",
     "allure-commandline": "^2.43.0",
     "allure-playwright": "^3.10.2",
+    "backstopjs": "^6.3.25",
     "jest": "^30.4.2",
     "start-server-and-test": "^3.0.12"
   },
