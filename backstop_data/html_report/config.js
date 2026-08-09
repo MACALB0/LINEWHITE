@@ -1,0 +1,52 @@
+report({
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\line_white_visual_regression_Login_Line_White_Services_0_document_0_desktop.png",
+        "test": "..\\bitmaps_test\\20260808-200952\\line_white_visual_regression_Login_Line_White_Services_0_document_0_desktop.png",
+        "selector": "document",
+        "fileName": "line_white_visual_regression_Login_Line_White_Services_0_document_0_desktop.png",
+        "label": "Login Line White Services",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://127.0.0.1:7055/",
+        "expect": 0,
+        "viewportLabel": "desktop",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\line_white_visual_regression_Login_Line_White_Services_0_document_1_mobile.png",
+        "test": "..\\bitmaps_test\\20260808-200952\\line_white_visual_regression_Login_Line_White_Services_0_document_1_mobile.png",
+        "selector": "document",
+        "fileName": "line_white_visual_regression_Login_Line_White_Services_0_document_1_mobile.png",
+        "label": "Login Line White Services",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0.1,
+        "url": "http://127.0.0.1:7055/",
+        "expect": 0,
+        "viewportLabel": "mobile",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "line_white_visual_regression"
+});

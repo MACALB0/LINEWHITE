@@ -1,0 +1,49 @@
+{
+  "id": "line_white_visual_regression",
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Login Line White Services",
+      "url": "http://127.0.0.1:7055/",
+      "delay": 2000,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "document"
+      ],
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

@@ -1,0 +1,581 @@
+[
+  {
+    "description": "  Como usuario del sistema\n  Quiero validar los principales flujos funcionales\n  Para asegurar que la aplicación responda correctamente",
+    "elements": [
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-01---iniciar-sesión-con-credenciales-válidas",
+        "keyword": "Escenario",
+        "line": 14,
+        "name": "AI-BDD-01 - Iniciar sesión con credenciales válidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 471242299
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 787327000
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 15,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1990548200
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 16,
+            "name": "ingreso credenciales válidas",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:133"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 62313599
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 17,
+            "name": "debo acceder al dashboard",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:166"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 360310599
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@alta",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-02---rechazar-credenciales-incorrectas",
+        "keyword": "Escenario",
+        "line": 20,
+        "name": "AI-BDD-02 - Rechazar credenciales incorrectas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 425618300
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 788491900
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 21,
+            "name": "que estoy en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:19"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 210903099
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 22,
+            "name": "intento iniciar sesión con un usuario inexistente",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:83"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 22930899
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 23,
+            "name": "debo permanecer en la página de inicio de sesión",
+            "match": {
+              "location": "tests\\e2e\\steps\\autenticacion.steps.js:122"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 480758200
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@alta",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-03---impedir-acceso-al-dashboard-sin-sesión",
+        "keyword": "Escenario",
+        "line": 26,
+        "name": "AI-BDD-03 - Impedir acceso al dashboard sin sesión",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 467210000
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5218000
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 27,
+            "name": "que no tengo una sesión autenticada",
+            "match": {
+              "location": "tests\\ai-generated\\e2e\\steps\\ia-flujos.steps.js:29"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 680632900
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 28,
+            "name": "intento acceder directamente al dashboard",
+            "match": {
+              "location": "tests\\ai-generated\\e2e\\steps\\ia-flujos.steps.js:42"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 51374799
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 29,
+            "name": "debo ser redirigido a la página de inicio de sesión",
+            "match": {
+              "location": "tests\\ai-generated\\e2e\\steps\\ia-flujos.steps.js:53"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 228172300
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@alta",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-04---acceder-al-módulo-de-inventario",
+        "keyword": "Escenario",
+        "line": 32,
+        "name": "AI-BDD-04 - Acceder al módulo de Inventario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 390954099
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2497633899
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 33,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 933216200
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 34,
+            "name": "selecciono el módulo de Inventario",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:63"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 88967899
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 35,
+            "name": "debo visualizar la página de Inventario",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:74"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 354544200
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@alta",
+            "line": 31
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-05---visualizar-productos-del-inventario",
+        "keyword": "Escenario",
+        "line": 38,
+        "name": "AI-BDD-05 - Visualizar productos del inventario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 408389800
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2329589299
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 39,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1002469700
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 40,
+            "name": "selecciono el módulo de Inventario",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:63"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 710138500
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 41,
+            "name": "debo visualizar la tabla de productos",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:87"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 251570500
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@media",
+            "line": 37
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-06---acceder-al-módulo-de-órdenes-técnicas",
+        "keyword": "Escenario",
+        "line": 44,
+        "name": "AI-BDD-06 - Acceder al módulo de Órdenes Técnicas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 420139100
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2228973400
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 45,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 994613199
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 46,
+            "name": "selecciono el módulo de Órdenes Técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:105"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 74761399
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 47,
+            "name": "debo visualizar la página de Órdenes Técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:116"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 162682199
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@alta",
+            "line": 43
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-07---visualizar-órdenes-técnicas-registradas",
+        "keyword": "Escenario",
+        "line": 50,
+        "name": "AI-BDD-07 - Visualizar órdenes técnicas registradas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 348814600
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2278214199
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 51,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 947149399
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 52,
+            "name": "selecciono el módulo de Órdenes Técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:105"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 491356800
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 53,
+            "name": "debo visualizar la tabla de órdenes técnicas",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:129"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 178644499
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@media",
+            "line": 49
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "flujos-críticos-de-line-white-services-generados-con-ia;ai-bdd-08---cerrar-sesión-desde-el-sistema",
+        "keyword": "Escenario",
+        "line": 56,
+        "name": "AI-BDD-08 - Cerrar sesión desde el sistema",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 387630900
+            },
+            "keyword": "Before",
+            "hidden": true
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2404128600
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 57,
+            "name": "que he iniciado sesión correctamente",
+            "match": {
+              "location": "tests\\e2e\\steps\\modulos-negocio.steps.js:27"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 578673500
+            },
+            "arguments": [],
+            "keyword": "Cuando ",
+            "line": 58,
+            "name": "cierro la sesión",
+            "match": {
+              "location": "tests\\ai-generated\\e2e\\steps\\ia-flujos.steps.js:73"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 89378700
+            },
+            "arguments": [],
+            "keyword": "Entonces ",
+            "line": 59,
+            "name": "debo regresar a la página de inicio de sesión",
+            "match": {
+              "location": "tests\\ai-generated\\e2e\\steps\\ia-flujos.steps.js:84"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 229309900
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@baja",
+            "line": 55
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "flujos-críticos-de-line-white-services-generados-con-ia",
+    "line": 7,
+    "keyword": "Característica",
+    "name": "Flujos críticos de Line White Services generados con IA",
+    "tags": [],
+    "uri": "tests\\ai-generated\\e2e\\ia-flujos.feature"
+  }
+]
