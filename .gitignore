@@ -160,3 +160,11 @@ bdd-server.pid
 # Sesiones locales
 sessions/*
 !sessions/.gitkeep
+
+# No subir la contraseña de la base de datos a GitHub
+DEMOSTRACION_CLASES/
+DEMOSTRACION_CLASES/cmd-config.bat
+DEMOSTRACION_CLASES/cmd-config-npm-test_coverage.bat
+DEMOSTRACION_CLASES/cmd-config-npm-test_bdd.bat
+DEMOSTRACION_CLASES/cmd-config-npm-test.bat
+DEMOSTRACION_CLASES/cmd-config-npm-test_e2e.bat
