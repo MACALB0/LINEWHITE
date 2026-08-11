@@ -26,6 +26,16 @@ module.exports = defineConfig({
     ]
   ],
 
+  // =====================================================
+    // Servidor de Line White Services
+    // =====================================================
+    webServer: {
+        command: 'npm start',
+        url: 'http://127.0.0.1:7055',
+        reuseExistingServer: !process.env.CI,
+        timeout: 120_000
+    },
+
   use: {
     baseURL: process.env.BASE_URL || 'http://127.0.0.1:7055',
 
