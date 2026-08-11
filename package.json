@@ -19,7 +19,10 @@
     "test:ai": "jest --config jest.ai.config.js --runInBand",
     "test:ai:bdd:run": "cucumber-js --config cucumber-ai.js",
     "test:ai:bdd": "start-server-and-test start http://127.0.0.1:7055 test:ai:bdd:run",
-    "test:ai:e2e": "playwright test --config=playwright.ai.config.js"
+    "test:ai:e2e": "playwright test --config=playwright.ai.config.js",
+    "test:cross-browser": "playwright test --config=playwright.cross-browser.config.js",
+    "test:cross-browser:login": "playwright test tests/e2e/login.spec.js --config=playwright.cross-browser.config.js",
+    "report:cross-browser": "playwright show-report reports/cross-browser-html"
   },
   "dependencies": {
     "admin-lte": "^4.0.0-rc6",

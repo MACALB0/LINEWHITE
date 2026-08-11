@@ -25,22 +25,96 @@ class OrdenesTecnicasPage {
         this.filasOrdenes = page.locator(
             '#tabla-ordenes .tabulator-row'
         );
+
+        this.sidebarToggle = page.locator(
+            '[data-lte-toggle="sidebar"]'
+        );
     }
 
+    // async abrirDesdeMenu() {
+    //     await this.menuOrdenesTecnicas.waitFor({
+    //         state: 'visible',
+    //         timeout: 15_000
+    //     });
+
+    //     await Promise.all([
+    //         this.page.waitForURL(
+    //             '**/ordenes_tecnicas',
+    //             {
+    //                 timeout: 30_000,
+    //                 waitUntil: 'domcontentloaded'
+    //             }
+    //         ),
+    //         this.menuOrdenesTecnicas.click()
+    //     ]);
+    // }
+
     async abrirDesdeMenu() {
-        await this.menuOrdenesTecnicas.waitFor({
-            state: 'visible',
-            timeout: 15_000
-        });
+
+        const ordenesEnViewport =
+            await this.menuOrdenesTecnicas.evaluate((element) => {
+
+                const rect =
+                    element.getBoundingClientRect();
+
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= window.innerHeight &&
+                    rect.right <= window.innerWidth
+                );
+            });
+
+        // En móvil/tablet el sidebar está colapsado.
+        if (!ordenesEnViewport) {
+
+            await this.sidebarToggle
+                .first()
+                .waitFor({
+                    state: 'visible',
+                    timeout: 30_000
+                });
+
+            await this.sidebarToggle
+                .first()
+                .click();
+
+            await this.page.waitForFunction(() => {
+
+                const element =
+                    document.querySelector(
+                        'a[href="/ordenes_tecnicas"]'
+                    );
+
+                if (!element) {
+                    return false;
+                }
+
+                const rect =
+                    element.getBoundingClientRect();
+
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= window.innerHeight &&
+                    rect.right <= window.innerWidth
+                );
+
+            }, {
+                timeout: 10_000
+            });
+        }
 
         await Promise.all([
+
             this.page.waitForURL(
                 '**/ordenes_tecnicas',
                 {
-                    timeout: 30_000,
-                    waitUntil: 'domcontentloaded'
+                    waitUntil: 'domcontentloaded',
+                    timeout: 30_000
                 }
             ),
+
             this.menuOrdenesTecnicas.click()
         ]);
     }
