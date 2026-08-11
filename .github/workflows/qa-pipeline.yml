@@ -26,10 +26,10 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@<SHA>
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@<SHA>
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -42,7 +42,7 @@ jobs:
 
       - name: Publicar reporte de coverage
         if: always()
-        uses: actions/upload-artifact@<SHA>
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/
@@ -94,16 +94,16 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@<SHA>
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@<SHA>
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Configurar Java para Allure
-        uses: actions/setup-java@<SHA>
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
@@ -161,7 +161,7 @@ jobs:
 
       - name: Publicar reportes E2E y Allure
         if: always()
-        uses: actions/upload-artifact@<SHA>
+        uses: actions/upload-artifact@v4
         with:
           name: e2e-allure-reports
           path: |
@@ -174,7 +174,7 @@ jobs:
 
       - name: Publicar screenshots y trazas de fallos
         if: failure()
-        uses: actions/upload-artifact@<SHA>
+        uses: actions/upload-artifact@v4
         with:
           name: e2e-failure-evidence
           path: |
@@ -193,10 +193,10 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@<SHA>
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@<SHA>
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -233,7 +233,7 @@ jobs:
 
     steps:
       - name: Descargar artifact de pruebas E2E
-        uses: actions/download-artifact@<SHA>
+        uses: actions/download-artifact@v4
         with:
           name: e2e-allure-reports
           path: artifacts
@@ -249,16 +249,16 @@ jobs:
           fi
 
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@<SHA>
 
       - name: Cargar reporte para GitHub Pages
-        uses: actions/upload-pages-artifact@<SHA>
+        uses: actions/upload-pages-artifact@v4
         with:
           path: artifacts/reports/allure-report
 
       - name: Publicar reporte Allure
         id: deployment
-        uses: actions/deploy-pages@<SHA>
+        uses: actions/deploy-pages@v4
   # =========================================================
   # JOB 5: Análisis estático con SonarQube Cloud
   # =========================================================
@@ -270,18 +270,18 @@ jobs:
 
     steps:
       - name: Descargar repositorio completo
-        uses: actions/checkout@<SHA>
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Configurar Node.js
-        uses: actions/setup-node@<SHA>
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Configurar Java
-        uses: actions/setup-java@<SHA>
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
@@ -348,13 +348,13 @@ jobs:
       # Descargar código
       # -----------------------------------------------------
       - name: Descargar repositorio
-        uses: actions/checkout@<SHA>
+        uses: actions/checkout@v4
 
       # -----------------------------------------------------
       # Node.js
       # -----------------------------------------------------
       - name: Configurar Node.js
-        uses: actions/setup-node@<SHA>
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -402,7 +402,7 @@ jobs:
       # -----------------------------------------------------
       - name: Publicar reporte Cross-Browser
         if: always()
-        uses: actions/upload-artifact@<SHA>
+        uses: actions/upload-artifact@v4
         with:
           name: cross-browser-report
           path: reports/cross-browser-html/
@@ -414,7 +414,7 @@ jobs:
       # -----------------------------------------------------
       - name: Publicar evidencias de fallos Cross-Browser
         if: failure()
-        uses: actions/upload-artifact@<SHA>
+        uses: actions/upload-artifact@v4
         with:
           name: cross-browser-failure-evidence
           path: |
