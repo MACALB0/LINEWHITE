@@ -11,8 +11,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: github-pages
@@ -28,10 +26,10 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@<SHA>
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@<SHA>
         with:
           node-version: 22
           cache: npm
@@ -44,7 +42,7 @@ jobs:
 
       - name: Publicar reporte de coverage
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@<SHA>
         with:
           name: coverage-report
           path: coverage/
@@ -91,21 +89,21 @@ jobs:
       DB_USER: postgres
       DB_PASSWORD: postgres_test
 
-      E2E_USERNAME: 8-999-9999
-      E2E_PASSWORD: "Qa_pipeline_2026#"
+      E2E_USERNAME: ${{ secrets.E2E_USERNAME }}
+      E2E_PASSWORD: ${{ secrets.E2E_PASSWORD }}
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@<SHA>
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@<SHA>
         with:
           node-version: 22
           cache: npm
 
       - name: Configurar Java para Allure
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@<SHA>
         with:
           distribution: temurin
           java-version: 17
@@ -163,7 +161,7 @@ jobs:
 
       - name: Publicar reportes E2E y Allure
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@<SHA>
         with:
           name: e2e-allure-reports
           path: |
@@ -176,7 +174,7 @@ jobs:
 
       - name: Publicar screenshots y trazas de fallos
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@<SHA>
         with:
           name: e2e-failure-evidence
           path: |
@@ -195,10 +193,10 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@<SHA>
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@<SHA>
         with:
           node-version: 22
           cache: npm
@@ -220,6 +218,11 @@ jobs:
     needs:
       - e2e-tests
 
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     if: >
       github.event_name == 'push' &&
       github.ref == 'refs/heads/main'
@@ -230,7 +233,7 @@ jobs:
 
     steps:
       - name: Descargar artifact de pruebas E2E
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@<SHA>
         with:
           name: e2e-allure-reports
           path: artifacts
@@ -249,13 +252,13 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Cargar reporte para GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@<SHA>
         with:
           path: artifacts/reports/allure-report
 
       - name: Publicar reporte Allure
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@<SHA>
   # =========================================================
   # JOB 5: Análisis estático con SonarQube Cloud
   # =========================================================
@@ -267,18 +270,18 @@ jobs:
 
     steps:
       - name: Descargar repositorio completo
-        uses: actions/checkout@v4
+        uses: actions/checkout@<SHA>
         with:
           fetch-depth: 0
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@<SHA>
         with:
           node-version: 22
           cache: npm
 
       - name: Configurar Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@<SHA>
         with:
           distribution: temurin
           java-version: 21
@@ -336,8 +339,8 @@ jobs:
       DB_USER: postgres
       DB_PASSWORD: postgres_test
 
-      E2E_USERNAME: 8-999-9999
-      E2E_PASSWORD: "Qa_pipeline_2026#"
+      E2E_USERNAME: ${{ secrets.E2E_USERNAME }}
+      E2E_PASSWORD: ${{ secrets.E2E_PASSWORD }}
 
     steps:
 
@@ -345,13 +348,13 @@ jobs:
       # Descargar código
       # -----------------------------------------------------
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@<SHA>
 
       # -----------------------------------------------------
       # Node.js
       # -----------------------------------------------------
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@<SHA>
         with:
           node-version: 22
           cache: npm
@@ -399,7 +402,7 @@ jobs:
       # -----------------------------------------------------
       - name: Publicar reporte Cross-Browser
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@<SHA>
         with:
           name: cross-browser-report
           path: reports/cross-browser-html/
@@ -411,7 +414,7 @@ jobs:
       # -----------------------------------------------------
       - name: Publicar evidencias de fallos Cross-Browser
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@<SHA>
         with:
           name: cross-browser-failure-evidence
           path: |
