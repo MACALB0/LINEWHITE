@@ -168,3 +168,6 @@ DEMOSTRACION_CLASES/cmd-config-npm-test_coverage.bat
 DEMOSTRACION_CLASES/cmd-config-npm-test_bdd.bat
 DEMOSTRACION_CLASES/cmd-config-npm-test.bat
 DEMOSTRACION_CLASES/cmd-config-npm-test_e2e.bat
+
+reports/cross-browser-html/
+test-results/
