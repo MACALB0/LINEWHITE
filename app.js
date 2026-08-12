@@ -13,6 +13,9 @@ var allRouter = require ('./routes/all_router');
 
 var app = express();
 
+// Evita divulgar que la aplicación utiliza Express
+app.disable('x-powered-by');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -29,7 +32,7 @@ app.use(session({
         ttl: 60 * 60 * 2, // 2 horas
         retries: 0
     }),
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'qa-local-session-secret',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -60,7 +63,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status || 404);
   res.render('error');
 });
 
