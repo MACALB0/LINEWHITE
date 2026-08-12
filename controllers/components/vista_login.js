@@ -1,14 +1,7 @@
-// vista_login.js
-const { request, response } = require('express');
-
-/* Llama a login.pug*/
-const code_vista_login = async (
-    req = request,
-    res = response
-) => {
+const code_vista_login = async (req, res) => {
     const tipoUsuario = Number(
-    req.session?.usuario?.id_tipo_usuario
-);
+        req.session?.usuario?.id_tipo_usuario
+    );
 
     if (tipoUsuario === 0 || tipoUsuario === 1) {
         return res.render(
@@ -24,4 +17,4 @@ const code_vista_login = async (
 
 module.exports = {
     code_vista_login
-}
+};

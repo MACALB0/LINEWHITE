@@ -1,14 +1,8 @@
 // login.js no va, se cambio a passport
-const { request, response } = require('express');
-
-/* Llama a login.pug*/
-const code_login = async (
-    req = request,
-    res = response
-) => {
+const code_login = async (req, res) => {
     const tipoUsuario = Number(
-    req.session?.usuario?.id_tipo_usuario
-);
+        req.session?.usuario?.id_tipo_usuario
+    );
 
     if (tipoUsuario === 0 || tipoUsuario === 1) {
         return res.render(
@@ -24,4 +18,4 @@ const code_login = async (
 
 module.exports = {
     code_login
-}
+};
