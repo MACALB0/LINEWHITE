@@ -363,7 +363,7 @@ jobs:
       # Dependencias
       # -----------------------------------------------------
       - name: Instalar dependencias
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       # -----------------------------------------------------
       # PostgreSQL
@@ -389,7 +389,7 @@ jobs:
       # -----------------------------------------------------
       - name: Instalar navegadores Cross-Browser
         run: |
-          npx playwright install --with-deps chromium firefox webkit
+          ./node_modules/.bin/playwright install --with-deps chromium firefox webkit
 
       # -----------------------------------------------------
       # Ejecutar suite
