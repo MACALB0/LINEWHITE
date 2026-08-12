@@ -13,6 +13,9 @@ var allRouter = require ('./routes/all_router');
 
 var app = express();
 
+// Evita divulgar que la aplicación utiliza Express
+app.disable('x-powered-by');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
