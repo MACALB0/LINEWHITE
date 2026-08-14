@@ -217,7 +217,6 @@ jobs:
 
       - name: Ejecutar npm audit
         run: npm audit --audit-level=high
-        
   # =========================================================
   # JOB 4: Publicar Allure en GitHub Pages
   # Solo se ejecuta después de completar correctamente E2E
