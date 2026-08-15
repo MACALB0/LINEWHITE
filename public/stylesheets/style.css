@@ -58,11 +58,6 @@ body {
         border-color: #1cc88a;
       }
 
-      .input-group-text {
-        background-color: #f8f9fc;
-        border-left: 0;
-      }
-
       .login-footer a {
         color: #2f55b5;
         text-decoration: none;
