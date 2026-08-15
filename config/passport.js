@@ -3,7 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const argon2 = require("argon2");
 const pool = require("../DB/database");
 
-module.exports = function (passport) {
+module.exports = function configurePassport(passport){
   passport.use(
     new LocalStrategy(
       {

@@ -18,6 +18,8 @@ const {
 test.describe('Flujo de gestión de inventario', () => {
 
     test.beforeEach(async ({ page }) => {
+        // E2E de inventario requiere credenciales configuradas en el entorno CI.
+        // Sin E2E_USERNAME y E2E_PASSWORD no es posible autenticar al usuario.
         test.skip(
             !usuarios.valido.usuario ||
             !usuarios.valido.contrasena,

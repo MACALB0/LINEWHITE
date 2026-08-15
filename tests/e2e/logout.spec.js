@@ -17,6 +17,8 @@ test.describe('Flujo de cierre de sesión', () => {
     test('Debe cerrar sesión y regresar al login', async ({
         page
     }) => {
+        // El flujo de logout requiere iniciar sesión previamente.
+        // Se omite cuando las credenciales E2E no están configuradas en el entorno.
         test.skip(
             !usuarios.valido.usuario ||
             !usuarios.valido.contrasena,
