@@ -1,0 +1,101 @@
+body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(-45deg, #4e73df, #1cc88a, #36b9cc, #f6c23e);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      @keyframes gradientBG {
+        0% {background-position:0% 50%;}
+        50% {background-position:100% 50%;}
+        100% {background-position:0% 50%;}
+      }
+
+      .login-card {
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        overflow: hidden;
+        width: 420px;
+        background: #ffffffdd;
+        backdrop-filter: blur(12px);
+        transition: transform 0.3s;
+      }
+
+      .login-logo img {
+        width: 100%;
+        
+        max-height: 175px;
+        display: block;
+        margin: 0 auto 1rem auto;
+
+        border-radius: 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
+      .shake {
+        animation: shakeAnim 0.5s;
+      }
+      @keyframes shakeAnim {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-10px); }
+        40%, 80% { transform: translateX(10px); }
+      }
+
+      .form-control:focus {
+        border-color: #1cc88a;
+        box-shadow: 0 0 8px #1cc88a;
+      }
+      .btn-primary {
+        background:#3b5bdb;
+        border-color:#3b5bdb;
+        transition: 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #1cc88a;
+        border-color: #1cc88a;
+      }
+
+      .input-group-text {
+        background-color: #f8f9fc;
+        border-left: 0;
+      }
+
+      .login-footer a {
+        color: #2f55b5;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .login-footer a:hover {
+        text-decoration: underline;
+      }
+
+      .social-login a {
+        font-size: 1.4rem;
+        margin: 0 8px;
+        color: #2f55b5;
+        transition: 0.3s;
+      }
+
+      .social-login a:hover,
+      .social-login a:focus {
+        color: #176c50;
+      }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.375rem 0.75rem; /* Ajusta si quieres más espacio */
+            font-size: 1.1rem; /* Tamaño del icono */
+            background-color: #f8f9fc;
+            border-left: 0;
+            height: 38px; /* Altura igual al input */
+        }
+
+        .input-group-text i {
+        line-height: 1;
+        }
