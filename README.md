@@ -1,32 +1,520 @@
 # LINEWHITE
-Proyecto empresa LINEWHITE
+
+Proyecto empresa LINEWHITE.
+
 # Line White Services — Suite de Pruebas Automatizadas
 
 ## Descripción del sistema
 
+**Line White Services** es una aplicación web desarrollada para apoyar la gestión
+de los procesos operativos de una empresa de servicios técnicos.
+
+El sistema permite administrar diferentes módulos, entre ellos:
+
+- Autenticación de usuarios.
+- Dashboard principal.
+- Gestión de inventario.
+- Gestión de facturas.
+- Gestión de usuarios.
+- Gestión de órdenes técnicas.
+- Control de acceso mediante sesiones y tipos de usuario.
+
+Como parte del Proyecto Integrador de Aseguramiento de Calidad, se implementó una
+suite de pruebas automatizadas para validar aspectos funcionales, de integración,
+seguridad, accesibilidad, compatibilidad y calidad del código.
+
+La estrategia de QA incorpora pruebas unitarias, pruebas End-to-End, BDD,
+Cross-Browser/Cross-Device Testing, análisis estático y ejecución automatizada
+mediante integración continua.
+
+---
+
 ## Tecnologías utilizadas
+
+### Aplicación
+
+- Node.js
+- Express
+- PostgreSQL
+- Pug
+- Passport
+- Argon2
+- express-session
+- session-file-store
+- AdminLTE
+
+### Quality Assurance
+
+- Jest — pruebas unitarias y coverage.
+- Playwright — pruebas End-to-End.
+- Playwright — Cross-Browser y Cross-Device Testing.
+- Axe Core — pruebas automatizadas de accesibilidad.
+- Cucumber — escenarios BDD.
+- Allure Report — generación de reportes de pruebas.
+- SonarQube Cloud — análisis estático y métricas de calidad.
+- npm audit — análisis de vulnerabilidades en dependencias.
+- OWASP ZAP — pruebas de seguridad dinámica.
+- k6 — pruebas de rendimiento y carga.
+
+### CI/CD
+
+- GitHub
+- GitHub Actions
+- GitHub Pages
+- SonarQube Cloud
+
+---
 
 ## Estructura del proyecto
 
+La estructura principal utilizada para las pruebas y automatización es:
+
+```text
+LINEWHITE/
+│
+├── .github/
+│   └── workflows/
+│       └── qa-pipeline.yml
+│
+├── config/
+│   └── passport.js
+│
+├── controllers/
+│   └── components/
+│
+├── middlewares/
+│   └── auth.js
+│
+├── routes/
+│
+├── views/
+│
+├── public/
+│
+├── DB/
+│   └── init-test-db.sql
+│
+├── tests/
+│   ├── unit/
+│   └── e2e/
+│
+├── reports/
+│   ├── playwright-html/
+│   ├── cross-browser-html/
+│   └── allure-report/
+│
+├── allure-results/
+│
+├── app.js
+├── package.json
+├── package-lock.json
+├── playwright.config.js
+├── playwright.cross-browser.config.js
+└── README.md
+```
+
+La carpeta `tests/unit` contiene las pruebas unitarias desarrolladas con Jest,
+mientras que `tests/e2e` contiene los escenarios automatizados mediante
+Playwright.
+
+Los reportes generados por las diferentes herramientas son almacenados en la
+carpeta `reports`.
+
+---
+
 ## Requisitos previos
+
+Para ejecutar el proyecto y su suite de pruebas se requiere:
+
+- Node.js 22 o compatible.
+- npm.
+- PostgreSQL.
+- Git.
+- Navegadores de Playwright.
+- Java 17 o superior para la generación de reportes Allure.
+- Variables de entorno configuradas correctamente.
+
+Para verificar las versiones instaladas:
+
+```bash
+node --version
+npm --version
+git --version
+```
+
+---
 
 ## Instalación
 
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/MACALB0/LINEWHITE
+```
+
+Ingresar al directorio de la aplicación:
+
+```bash
+cd LINEWHITE
+```
+
+Instalar las dependencias definidas en `package-lock.json`:
+
+```bash
+npm ci
+```
+
+Instalar los navegadores utilizados por Playwright:
+
+```bash
+npx playwright install
+```
+
+Para instalar también las dependencias requeridas en ambientes Linux/CI:
+
+```bash
+npx playwright install --with-deps
+```
+
+---
+
 ## Variables de entorno
+
+La aplicación utiliza variables de entorno para manejar información de
+configuración.
+
+Ejemplo:
+
+```env
+PORT=7055
+SESSION_SECRET=<session-secret>
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=<database-name>
+DB_USER=<database-user>
+DB_PASSWORD=<database-password>
+
+E2E_USERNAME=<test-username>
+E2E_PASSWORD=<test-password>
+```
+
+Las credenciales y secretos reales **no deben almacenarse directamente en el
+repositorio**.
+
+En GitHub Actions, los valores sensibles utilizados por las pruebas son
+administrados mediante **GitHub Actions Secrets**.
+
+---
 
 ## Ejecución de pruebas unitarias
 
+Las pruebas unitarias fueron desarrolladas utilizando Jest.
+
+Para ejecutar todas las pruebas:
+
+```bash
+npm test
+```
+
+La suite valida componentes críticos como:
+
+- Configuración principal de Express.
+- Autenticación.
+- Passport.
+- Middleware de autorización.
+- Controladores.
+- Vistas.
+- Inventario.
+- Manejo de sesiones.
+
+La suite actual contiene más de 40 pruebas unitarias automatizadas.
+
+---
+
 ## Ejecución de coverage
+
+Para ejecutar Jest generando el reporte de cobertura:
+
+```bash
+npm run test:coverage
+```
+
+Jest genera los reportes dentro de:
+
+```text
+coverage/
+```
+
+Se generan reportes en los formatos:
+
+- Text
+- LCOV
+- HTML
+
+El proyecto establece un umbral global mínimo de:
+
+```text
+Statements: >= 70%
+Branches:   >= 70%
+Functions:  >= 70%
+Lines:      >= 70%
+```
+
+La cobertura es utilizada adicionalmente por SonarQube Cloud durante el análisis
+estático del proyecto.
+
+---
 
 ## Ejecución de Playwright
 
+Las pruebas End-to-End fueron implementadas mediante Playwright.
+
+Ejecutar la suite:
+
+```bash
+npm run test:e2e
+```
+
+Ejecutar las pruebas mostrando el navegador:
+
+```bash
+npm run test:e2e:headed
+```
+
+Ejecutar mediante la interfaz de Playwright:
+
+```bash
+npm run test:e2e:ui
+```
+
+Visualizar el reporte generado:
+
+```bash
+npm run report:e2e
+```
+
+Los reportes HTML son almacenados en:
+
+```text
+reports/playwright-html/
+```
+
+Las pruebas E2E permiten validar flujos reales de la aplicación, incluyendo
+autenticación, navegación y comportamiento de los principales módulos.
+
+### Cross-Browser y Cross-Device
+
+También se implementó una configuración específica para ejecutar pruebas en
+diferentes navegadores y dispositivos emulados:
+
+```bash
+npm run test:cross-browser
+```
+
+La matriz automatizada incluye:
+
+- Chromium / Desktop Chrome.
+- Firefox / Desktop Firefox.
+- WebKit / Desktop Safari.
+- Pixel 7 / Mobile Chrome.
+- iPhone 14 / Mobile Safari.
+- iPad Pro 11 / Tablet.
+
+Para visualizar el reporte:
+
+```bash
+npm run report:cross-browser
+```
+
+El reporte se almacena en:
+
+```text
+reports/cross-browser-html/
+```
+
+---
+
 ## Ejecución de Cucumber
+
+Se utiliza Cucumber para implementar escenarios basados en
+**Behavior-Driven Development (BDD)**.
+
+Ejecutar todos los escenarios BDD:
+
+```bash
+npm run test:bdd
+```
+
+El comando utiliza `start-server-and-test` para:
+
+1. Iniciar la aplicación.
+2. Esperar a que esté disponible en el puerto `7055`.
+3. Ejecutar los escenarios de Cucumber.
+4. Finalizar el servidor después de las pruebas.
+
+También puede ejecutarse específicamente la configuración de login:
+
+```bash
+npm run test:bdd:login
+```
+
+Los resultados pueden almacenarse como evidencia dentro de:
+
+```text
+reports/cucumber-report.json
+```
+
+---
 
 ## Generación del reporte Allure
 
+Allure se utiliza para generar un reporte consolidado y visual de los resultados
+de las pruebas automatizadas.
+
+Ejecutar las pruebas E2E y generar los resultados:
+
+```bash
+npm run test:e2e:allure
+```
+
+Generar manualmente el reporte:
+
+```bash
+npm run allure:generate
+```
+
+Abrir el reporte:
+
+```bash
+npm run allure:open
+```
+
+El reporte generado se encuentra en:
+
+```text
+reports/allure-report/
+```
+
+En el pipeline CI/CD, el reporte Allure también es publicado automáticamente
+mediante GitHub Pages después de una ejecución satisfactoria.
+
+---
+
 ## Pipeline CI/CD
 
+El proyecto implementa integración continua mediante **GitHub Actions**.
+
+El workflow principal se encuentra en:
+
+```text
+.github/workflows/qa-pipeline.yml
+```
+
+El pipeline ejecuta diferentes capas de aseguramiento de calidad.
+
+### Jobs principales
+
+**1. Unit Tests**
+
+Ejecuta:
+
+```bash
+npm run test:coverage
+```
+
+Valida las pruebas unitarias y genera el reporte de cobertura.
+
+**2. E2E Tests**
+
+Configura una base de datos PostgreSQL temporal y ejecuta:
+
+- Playwright.
+- Axe.
+- Pruebas E2E.
+- Cucumber.
+- Allure.
+
+**3. Security Scan**
+
+Ejecuta:
+
+```bash
+npm audit --audit-level=high
+```
+
+para detectar vulnerabilidades conocidas en las dependencias del proyecto.
+
+**4. SonarCloud Scan**
+
+Ejecuta el análisis estático mediante SonarQube Cloud, incluyendo:
+
+- Seguridad.
+- Reliability.
+- Maintainability.
+- Coverage.
+- Duplicaciones.
+- Issues del código.
+
+**5. Cross-Browser Tests**
+
+Ejecuta Playwright sobre diferentes navegadores y perfiles de dispositivos para
+comprobar la compatibilidad de la aplicación.
+
+**6. Deploy Allure Report**
+
+Publica automáticamente el reporte de Allure mediante GitHub Pages después de
+una ejecución satisfactoria de las pruebas.
+
+### Criterio de calidad del pipeline
+
+El objetivo es mantener el pipeline completamente verde antes de integrar
+cambios en la rama principal.
+
+La ejecución automatizada permite detectar regresiones, vulnerabilidades,
+problemas de cobertura, errores funcionales e incompatibilidades antes de que
+los cambios sean considerados aptos para integración.
+
+---
+
 ## Integración de IA Documentada
+
+Durante el desarrollo del Proyecto Integrador se utilizaron herramientas de
+Inteligencia Artificial como apoyo al proceso de QA.
+
+Las herramientas principales utilizadas fueron:
+
+- ChatGPT (OpenAI).
+- GitHub Copilot Chat.
+
+La IA fue utilizada para análisis de requisitos, diseño y revisión de casos de
+prueba, apoyo con Jest y Playwright, configuración de GitHub Actions,
+SonarQube Cloud, OWASP ZAP, k6, Cucumber, Page Objects, Cross-Browser Testing
+y elaboración de documentación técnica.
+
+---
+
+## Estado del proyecto
+
+El Proyecto Integrador incorpora diferentes niveles de aseguramiento de calidad:
+
+- Pruebas unitarias.
+- Coverage automatizado.
+- Pruebas E2E.
+- BDD.
+- Pruebas de accesibilidad.
+- Cross-Browser Testing.
+- Cross-Device Testing.
+- Análisis estático.
+- Análisis de dependencias.
+- Pruebas de seguridad.
+- Pruebas de rendimiento.
+- Pipeline CI/CD.
+- Reportes automatizados.
+- Integración de IA documentada.
+
+El objetivo final es mantener una suite reproducible y automatizada que permita
+evaluar continuamente la calidad de **Line White Services**.
 
 Durante el desarrollo del proyecto integrador Line White Services se utilizaron
 herramientas de Inteligencia Artificial como apoyo en diferentes actividades de
