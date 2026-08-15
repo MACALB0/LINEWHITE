@@ -79,6 +79,8 @@ test('Debe rechazar un usuario inexistente', async ({ page }) => {
     test('Debe permitir iniciar sesión con credenciales válidas', async ({
         page
     }) => {
+        // Esta prueba requiere credenciales E2E reales configuradas como secretos.
+        // Se omite únicamente cuando E2E_USERNAME o E2E_PASSWORD no están disponibles.
         test.skip(
             !usuarios.valido.usuario ||
             !usuarios.valido.contrasena,
